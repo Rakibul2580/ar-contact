@@ -1,0 +1,319 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: #f8fafc;
+  background: #061326;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  background:
+    radial-gradient(
+      ellipse at 50% -10%,
+      rgba(28, 89, 147, 0.42),
+      transparent 48%
+    ),
+    linear-gradient(145deg, #07182e 0%, #061326 48%, #081d37 100%);
+}
+
+.ambient {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 999px;
+  filter: blur(90px);
+  opacity: 0.2;
+  pointer-events: none;
+  animation: float 10s ease-in-out infinite alternate;
+}
+.ambient-one {
+  top: 8%;
+  left: -130px;
+  background: #087fbd;
+}
+.ambient-two {
+  right: -140px;
+  bottom: 5%;
+  background: #0d9488;
+  animation-delay: -4s;
+}
+
+.main-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: linear-gradient(
+    155deg,
+    rgba(20, 39, 63, 0.96),
+    rgba(8, 26, 48, 0.97)
+  );
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+.main-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(250, 204, 21, 0.55),
+    transparent
+  );
+}
+.logo-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}
+.text-gradient {
+  background: linear-gradient(90deg, #f8d878, #eab54b 48%, #fff0bd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 132px;
+  padding: 18px 16px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 24px;
+  background: linear-gradient(
+    120deg,
+    rgba(24, 65, 105, 0.88),
+    rgba(12, 43, 77, 0.96)
+  );
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.contact-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(125, 211, 252, 0.4);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
+}
+.contact-card-primary {
+  background: linear-gradient(
+    120deg,
+    rgba(18, 79, 91, 0.94),
+    rgba(12, 54, 78, 0.98)
+  );
+  border-color: rgba(52, 211, 153, 0.22);
+}
+.contact-icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  place-items: center;
+  color: #f5ce72;
+  border-radius: 18px;
+  background: rgba(234, 179, 8, 0.12);
+  border: 1px solid rgba(250, 204, 21, 0.16);
+}
+.contact-icon-green {
+  color: white;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #25d366, #12a85a);
+  box-shadow: 0 0 24px rgba(37, 211, 102, 0.25);
+  border: 0;
+}
+.card-arrow {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border-radius: 50%;
+  color: #10233b;
+  background: linear-gradient(145deg, #f9df91, #d9a83f);
+  transition: transform 0.25s ease;
+}
+.contact-card:hover .card-arrow {
+  transform: translate(2px, -2px);
+}
+
+@keyframes float {
+  from {
+    transform: translate3d(0, -10px, 0) scale(0.95);
+  }
+  to {
+    transform: translate3d(20px, 25px, 0) scale(1.12);
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-card {
+    gap: 12px;
+    padding: 15px 12px;
+  }
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    flex-basis: 50px;
+    border-radius: 15px;
+  }
+  .card-arrow {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+  }
+}
+
+/* Responsive Contact Cards */
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+  padding: 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+}
+
+.contact-card > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+}
+
+.contact-card:hover .card-arrow {
+  transform: translate(3px, -3px);
+}
+
+.logo-wrap {
+  overflow: hidden;
+}
+
+.logo-wrap img {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .main-panel {
+    max-width: 100%;
+  }
+
+  .contact-card {
+    padding: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .contact-card {
+    gap: 11px;
+    padding: 14px 12px;
+    border-radius: 17px;
+  }
+
+  .contact-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 13px;
+  }
+
+  .card-arrow {
+    display: none;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+  .contact-card {
+    gap: 9px;
+    padding: 12px 10px;
+  }
+
+  .contact-icon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .contact-card .text-sm {
+    font-size: 12px;
+  }
+
+  .main-panel {
+    padding: 13px;
+  }
+}
+
+/* Touch Devices */
+@media (hover: none) {
+  .contact-card:hover {
+    transform: none;
+  }
+
+  .contact-card:hover .card-arrow {
+    transform: none;
+  }
+}
